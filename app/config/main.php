@@ -34,7 +34,14 @@ return array(
 
 	// application components
 	'components' => array(
-
+			'db' => array(
+			'connectionString' => 'mysql:host=basic;dbname=yii_basic',
+			'username' => 'mysql',
+			'password' => 'mysql',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'charset' => 'utf8',
+	),
 		'bootstrap' => array(
 			'class' => 'bootstrap.components.TbApi',
 		),

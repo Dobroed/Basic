@@ -9,15 +9,14 @@
  */
 return array(
 	'components' => array(
-//		configure to suit your needs
-//		'db' => array(
-//			'connectionString' => '{DB_CONNECTION}',
-//			'username' => '{DB_USER}',
-//			'password' => '{DB_PASSWORD}',
-//			'enableProfiling' => YII_DEBUG,
-//			'enableParamLogging' => YII_DEBUG,
-//			'charset' => 'utf8',
-//		),
+	'db' => array(
+			'connectionString' => 'mysql:host=basic;dbname=yii_basic',
+			'username' => 'mysql',
+			'password' => 'mysql',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'charset' => 'utf8',
+	),
 	),
 	'params' => array(
 		'yii.debug' => false,

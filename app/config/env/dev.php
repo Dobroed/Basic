@@ -16,15 +16,14 @@ return array(
 		),
 	),
 	'components' => array(
-//		modify to suit your needs
-//		'db' => array(
-//			'connectionString' => '{CONNECTION_STRING}',
-//			'username' => '{USERNAME}',
-//			'password' => '{PASSWORD}',
-//			'enableProfiling' => true,
-//			'enableParamLogging' => true,
-//			'charset' => 'utf8',
-//		),
+			'db' => array(
+			'connectionString' => 'mysql:host=basic;dbname=mydb',
+			'username' => 'mysql',
+			'password' => 'mysql',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'charset' => 'utf8',
+	),
 	),
 	'params' => array(
 		'yii.handleErrors'   => true,
