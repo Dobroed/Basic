@@ -28,9 +28,58 @@ return array(
 
 	// controllers mappings
 	'controllerMap' => array(),
+     'import'=>array(
+        'application.modules.user.*',
+        'application.modules.user.models.*',
+        'application.modules.user.components.*',
+        'application.modules.rights.*',
+        'application.modules.rights.models.*',
+        'application.modules.rights.components.*',
+   
+),
 
 	// application modules
-	'modules' => array(),
+	'modules' => array(
+            'user' => array(
+            // названия таблиц взяты по умолчанию, их можно изменить
+                'tableUsers' => 'tbl_users',
+                 'tableProfiles' => 'tbl_profiles',
+                'tableProfileFields' => 'tbl_profiles_fields',
+                 # encrypting method (php hash function)
+           
+             'hash' => 'md5',
+
+            # send activation email
+            'sendActivationMail' => false,
+
+            # allow access for non-activated users
+            'loginNotActiv' => false,
+
+            # activate user on registration (only sendActivationMail = false)
+            'activeAfterRegister' => false,
+
+            # automatically login from registration
+            'autoLogin' => true,
+
+            # registration path
+            'registrationUrl' => array('/user/registration'),
+
+            # recovery password path
+            'recoveryUrl' => array('/user/recovery'),
+
+            # login form path
+            'loginUrl' => array('/user/login'),
+
+            # page after login
+            'returnUrl' => array('/user/profile'),
+
+            # page after logout
+            'returnLogoutUrl' => array('/user/login'),
+         ),
+            'rights'=>array(
+		
+                ),
+        ),
 
 	// application components
 	'components' => array(
@@ -41,7 +90,11 @@ return array(
 			'enableProfiling' => true,
 			'enableParamLogging' => true,
 			'charset' => 'utf8',
+                            'tablePrefix' => 'tbl_',
 	),
+            'log'=>array(
+                
+                ),
 		'bootstrap' => array(
 			'class' => 'bootstrap.components.TbApi',
 		),
@@ -66,12 +119,23 @@ return array(
 			),
 		),
 		'user' => array(
-			'allowAutoLogin' => true,
+			'class'=>'RWebUser',
+                        'allowAutoLogin'=>true,
 		),
+            'authManager'=>array(
+		'class'=>'RDbAuthManager',
+		'defaultRoles' => array('Guest'),
+                 'rightsTable' => 'tbl_rights',
+                 'itemTable' => 'tbl_auth_item',
+                 'itemChildTable' => 'tbl_auth_item_child',
+                 'assignmentTable' => 'tbl_auth_assignment',
+	),
 		'errorHandler' => array(
 			'errorAction' => 'site/error',
 		)
 	),
 	// application parameters
-	'params' => array(),
+	'params' => array()
+          
+        
 );

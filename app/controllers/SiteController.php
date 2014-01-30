@@ -29,4 +29,5 @@ class SiteController extends EController
 				$this->render('error', $error);
 		}
 	}
+        
 }
