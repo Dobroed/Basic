@@ -1,3 +1,0 @@
-[submodule "user"]
-	path = user
-	url = ./app/modules/user
